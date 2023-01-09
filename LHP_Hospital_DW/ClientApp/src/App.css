@@ -1,0 +1,11 @@
+button {
+    margin: 0 0.5rem 0.5rem 0;
+}
+
+.error {
+    color: red;
+}
+
+.hidden-title label.control-label {
+    display: none;
+}

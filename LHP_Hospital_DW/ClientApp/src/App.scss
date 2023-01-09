@@ -1,0 +1,87 @@
+button {
+    margin: 0 0.5rem 0.5rem 0;
+}
+
+.error {
+    color: red;
+}
+
+.hidden-title label.control-label {
+    display: none;
+}
+
+body {
+    margin: 0;
+    padding: 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.checkboxes input {
+    margin-right: 10px;
+    margin-left: 20px;
+}
+
+.MuiMenuItem-root {
+    white-space: normal !important;
+}
+
+// Grid Overides
+.full {
+    flex-basis: 100%;
+    max-width: 100%;
+}
+.half {
+    flex-basis: 50%;
+    max-width: 50%;
+}
+.third {
+    flex-basis: 33.333333%;
+    max-width: 33.3333%;
+}
+.quarter {
+    flex-basis: 25%;
+    max-width: 25%;
+}
+// Forms
+#lhpForm {
+    // Acute Transfer Form
+    &.frmAcuteTransfer {        
+        .MuiGrid-grid-xs-12 {
+            @extend .third;
+            @media all and (max-width: 768px) {
+                flex-basis: 100%;
+                max-width: 100%;
+            }
+        }
+        .MuiGrid-grid-xs-12:first-child,
+        .MuiGrid-grid-xs-12:nth-last-child(2),
+        .MuiExpansionPanelDetails-root .MuiGrid-grid-xs-12 {
+            @extend .full;
+        }
+        .MuiGrid-grid-xs-11 {
+            flex-basis: 77%;
+        }
+        .MuiTypography-body1,
+        .MuiInputBase-input,
+        .MuiInputLabel-outlined,
+        .MuiTypography-h5 {
+            font-size: .75rem;
+        }
+    }
+
+    // Skilled Service Form
+    &.frmSkilledService {
+        h5 {
+            font-size: 1.25rem;
+        }
+        #root_reasons_for_service__title {
+            margin-bottom: 15px;
+        }
+    }
+}

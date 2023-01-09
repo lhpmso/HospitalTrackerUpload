@@ -1,0 +1,132 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+        <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+        <IsPackable>false</IsPackable>
+        <SpaRoot>ClientApp\</SpaRoot>
+        <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <!-- Don't publish the SPA source files, but do show them in the project files list -->
+        <Content Remove="$(SpaRoot)**" />
+        <Content Include="ClientApp\.env" />
+        <Content Include="ClientApp\.gitignore" />
+        <Content Include="ClientApp\.idea\.gitignore" />
+        <Content Include="ClientApp\.idea\inspectionProfiles\Project_Default.xml" />
+        <Content Include="ClientApp\.idea\LHP_Acute_Transfers.iml" />
+        <Content Include="ClientApp\.idea\misc.xml" />
+        <Content Include="ClientApp\.idea\modules.xml" />
+        <Content Include="ClientApp\.idea\vcs.xml" />
+        <Content Include="ClientApp\.npmrc" />
+        <Content Include="ClientApp\package.json" />
+        <Content Include="ClientApp\public\auth.html" />
+        <Content Include="ClientApp\public\favicon.ico" />
+        <Content Include="ClientApp\public\index.html" />
+        <Content Include="ClientApp\public\manifest.json" />
+        <Content Include="ClientApp\README.md" />
+        <Content Include="ClientApp\src\actions\EditorActions.js" />
+        <Content Include="ClientApp\src\actions\FormActions.js" />
+        <Content Include="ClientApp\src\actions\HealthPlanActions.js" />
+        <Content Include="ClientApp\src\actions\NavTypes.js" />
+        <Content Include="ClientApp\src\actions\AdminActions.js" />
+        <Content Include="ClientApp\src\actions\types.js" />
+        <Content Include="ClientApp\src\actions\URL.js" />
+        <Content Include="ClientApp\src\App.scss" />
+        <Content Include="ClientApp\src\App.js" />
+        <Content Include="ClientApp\src\App.test.js" />
+        <Content Include="ClientApp\src\AuthProvider.js" />
+        <Content Include="ClientApp\src\components\MemberFormDirectorViewer.js" />
+        <Content Include="ClientApp\src\components\MemberFormEditorV2.js" />
+        <Content Include="ClientApp\src\components\TransferFacilityComponent.js" />
+        <Content Include="ClientApp\src\components\FormEditor.js" />
+        <Content Include="ClientApp\src\components\CustomForm.js" />
+        <Content Include="ClientApp\src\components\DictFormSelectorDialog.js" />
+        <Content Include="ClientApp\src\components\FacilitySelector.js" />
+        <Content Include="ClientApp\src\components\FormLoadingSpinner.js" />
+        <Content Include="ClientApp\src\components\HealthPlanSelector.js" />
+        <Content Include="ClientApp\src\components\LoadingSpinner.js" />
+        <Content Include="ClientApp\src\components\MemberFormEditor.js" />
+        <Content Include="ClientApp\src\components\MemberFormViewer.js" />
+        <Content Include="ClientApp\src\components\MemberSelector.js" />
+        <Content Include="ClientApp\src\components\MemberSelectorDialog.js" />
+        <Content Include="ClientApp\src\components\MemberTable.js" />
+        <Content Include="ClientApp\src\components\SavingSpinner.js" />
+        <Content Include="ClientApp\src\components\SkilledServiceEditor.js" />
+        <Content Include="ClientApp\src\components\SkilledServicesTable.js" />
+        <Content Include="ClientApp\src\components\SortableList.js" />
+        <Content Include="ClientApp\src\components\TableUtils.js" />
+        <Content Include="ClientApp\src\form\BaseInput.js" />
+        <Content Include="ClientApp\src\form\DateTimeWidget.js" />
+        <Content Include="ClientApp\src\form\EnrollmentWidget.js" />
+        <Content Include="ClientApp\src\form\HealthPlanWidget.js" />
+        <Content Include="ClientApp\src\form\HospitalSelectorWidget.js" />
+        <Content Include="ClientApp\src\form\AgeWidget.js" />
+        <Content Include="ClientApp\src\form\ObjectFieldTemplate.js" />
+        <Content Include="ClientApp\src\form\OpportunitiesWidget.js" />
+        <Content Include="ClientApp\src\form\PreviousAdmissionsWidget.js" />
+        <Content Include="ClientApp\src\form\SelectWidget.js" />
+        <Content Include="ClientApp\src\form\TextAreaWidget.js" />
+        <Content Include="ClientApp\src\form\ValueViewerWidget.js" />
+        <Content Include="ClientApp\src\index.css" />
+        <Content Include="ClientApp\src\index.js" />
+        <Content Include="ClientApp\src\schema\AcuteTransferSchema.json" />
+        <Content Include="ClientApp\src\schema\AcuteTransferUISchema.json" />
+        <Content Include="ClientApp\src\schema\SkilledNursingSchema.json" />
+        <Content Include="ClientApp\src\schema\SkilledNursingUISchema.json" />
+        <Content Include="ClientApp\src\schema\TestFormData.json" />
+        <Content Include="ClientApp\src\schema\TestSchema.json" />
+        <Content Include="ClientApp\src\schema\TestUISchema.json" />
+        <Content Include="ClientApp\src\store\reduxStore.js" />
+        <Content Include="ClientApp\src\Util.js" />
+        <Content Include="ClientApp\src\views\DocumentAdminView.js" />
+        <Content Include="ClientApp\src\views\DocumentCreateView.js" />
+        <Content Include="ClientApp\src\views\DocumentView.js" />
+        <Content Include="ClientApp\src\views\DrawerView.js" />
+        <Content Include="ClientApp\src\views\FormEditorView.js" />
+        <Content Include="ClientApp\src\views\HomeView.js" />
+        <Content Include="ClientApp\src\views\TestView.js" />
+        <Content Include="ClientApp\src\views\UnauthorizedView.js" />
+        <None Remove="$(SpaRoot)**" />
+        <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="ClientApp\package-lock.json" />
+      <_ContentIncludedByDefault Remove="ClientApp\package.json" />
+      <_ContentIncludedByDefault Remove="ClientApp\public\manifest.json" />
+    </ItemGroup>
+
+    <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
+        <!-- Ensure Node.js is installed -->
+        <Exec Command="node --version" ContinueOnError="true">
+            <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+        </Exec>
+        <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+        <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
+        <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    </Target>
+
+    <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+        <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
+        <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+        <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build" />
+
+        <!-- Include the newly-built files in the publish output -->
+        <ItemGroup>
+            <DistFiles Include="$(SpaRoot)build\**" />
+            <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+                <RelativePath>%(DistFiles.Identity)</RelativePath>
+                <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+                <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+            </ResolvedFileToPublish>
+        </ItemGroup>
+    </Target>
+
+</Project>

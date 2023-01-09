@@ -1,0 +1,114 @@
+{
+  "member_banner": {
+    "ui:widget": "MemberInformation"
+  },
+  "section_a": {
+    "ui:expanded": false,
+    "ui:field": "ExpandableObjectField",
+    "transfer_hospital":{
+      "ui:widget": "HospitalSelector"
+    }
+  },
+  "section_b": {
+    "member_admitted_30_days": {
+      "ui:widget": "PreviousAdmissionsWidget"
+    },
+    "age": {
+      "ui:widget": "AgeWidget"
+    },
+    "health_plan": {
+      "ui:widget": "HealthPlanWidget"
+    },
+    "enrollment_date": {
+      "ui:widget": "EnrollmentWidget"
+    },
+    "ui:field": "ExpandableObjectField"
+  ,
+    "medications": {
+      "ui:order": [
+        "contribute_to_transfer",
+        "explain",
+        "medication_improvement"
+      ]
+    },
+    "contributing_factors": {
+      "member_family_factors": {
+        "ui:field": "ExpandableObjectField"
+      },
+      "facility_factors": {
+        "ui:field": "ExpandableObjectField"
+      },
+      "pcp_factors": {
+        "ui:field": "ExpandableObjectField"
+      },
+      "lhp_np_factors": {
+        "ui:field": "ExpandableObjectField"
+      },
+      "telemedicine_factors": {
+        "ui:field": "ExpandableObjectField"
+      },
+      "specialist_factors": {
+        "ui:field": "ExpandableObjectField"
+      },
+      "facility_np_factors": {
+        "ui:field": "ExpandableObjectField"
+      },
+      "ui:field": "ExpandableObjectField"
+    },
+    "labs": {
+    },
+    "vitals": {
+      "ui:field": "ExpandableObjectField"
+    },
+    "cic_body_systems": {
+      "ui:field": "ExpandableObjectField",
+      "general": {
+        "ui:field": "ExpandableObjectField"
+      },
+      "psych": {
+        "ui:field": "ExpandableObjectField"
+      },
+      "neuro": {
+        "ui:field": "ExpandableObjectField"
+      },
+      "cardiopulmonary": {
+        "ui:field": "ExpandableObjectField"
+      },
+      "gi": {
+        "ui:field": "ExpandableObjectField"
+      },
+      "gu": {
+        "ui:field": "ExpandableObjectField"
+      },
+      "hematology": {
+        "ui:field": "ExpandableObjectField"
+      },
+      "skin": {
+        "ui:field": "ExpandableObjectField"
+      },
+      "ortho_trauma": {
+        "ui:field": "ExpandableObjectField"
+      },
+      "other": {
+        "ui:field": "ExpandableObjectField"
+      }
+    },
+    "acp_code_status": {
+      "ui:options": {
+        "inline": true
+      }
+    }
+  },
+  "section_c": {
+    "discharge_date_viewer": {
+      "ui:widget": "ValueViewerWidget"
+    },
+    "ui:field": "ExpandableObjectField"
+  },
+  "section_d": {
+    "follow_up_opportunities": {
+      "ui:widget": "OpportunitiesWidget"
+    },
+    "ui:field": "ExpandableObjectField"
+  }
+}

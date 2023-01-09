@@ -1,0 +1,8 @@
+{
+  "member_information": {
+    "ui:widget": "MemberInformation"
+  },
+  "hospital": {
+    "ui:widget": "HospitalSelector"
+  }
+}

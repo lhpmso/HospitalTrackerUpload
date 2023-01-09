@@ -1,0 +1,370 @@
+{
+  "title": "Skilled Nursing Services",
+  "definitions": {
+    "chronic_condition": {
+      "dependencies": {
+        "chronic_condition": {
+          "oneOf": [
+            {
+              "properties": {
+                "chronic_condition": {
+                  "enum": [
+                    "COPD",
+                    "CHF",
+                    "S/P MI",
+                    "Angina"
+                  ],
+                  "title": "Infection Type",
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "properties": {
+                "chronic_condition": {
+                  "enum": [
+                    "Other"
+                  ],
+                  "title": "Infection Type",
+                  "type": "string"
+                },
+                "chronic_condition_other": {
+                  "type": "string",
+                  "title": "Other Chronic Condition"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "properties": {
+        "chronic_condition": {
+          "title": "Chronic Condition Type",
+          "enum": [
+            "COPD",
+            "CHF",
+            "S/P MI",
+            "Angina",
+            "Other"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "infection_type": {
+      "dependencies": {
+        "infection_type": {
+          "oneOf": [
+            {
+              "properties": {
+                "infection_type": {
+                  "title": "Infection Type",
+                  "enum": [
+                    "Sepsis",
+                    "Pneumonia",
+                    "Covid",
+                    "Osteomyelitis"
+                  ],
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "properties": {
+                "infection_type": {
+                  "title": "Infection Type",
+                  "enum": [
+                    "Other"
+                  ],
+                  "type": "string"
+                },
+                "infection_type_other": {
+                  "type": "string",
+                  "title": "Other Infection Type"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "properties": {
+        "infection_type": {
+          "title": "Infection Type",
+          "enum": [
+            "Sepsis",
+            "Pneumonia",
+            "Covid",
+            "Osteomyelitis",
+            "Other"
+          ],
+          "type": "string"
+        }
+      }
+    },
+    "reason_for_service": {
+      "dependencies": {
+        "service_reason": {
+          "oneOf": [
+            {
+              "properties": {
+                "service_reason": {
+                  "type": "string",
+                  "enum": [
+                    "Other"
+                  ]
+                },
+                "service_reason_other": {
+                  "title": "Other Service Reason",
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "properties": {
+                "service_reason": {
+                  "type": "string",
+                  "enum": [
+                    "Acute Exacerbation of Chronic Conditions"
+                  ]
+                },
+                "chronic_condition": {
+                  "title": "",
+                  "type": "object",
+                  "$ref": "#/definitions/chronic_condition"
+                }
+              }
+            },
+            {
+              "properties": {
+                "service_reason": {
+                  "type": "string",
+                  "enum": [
+                    "Infection"
+                  ]
+                },
+                "infection_type": {
+                  "title": "",
+                  "type": "object",
+                  "$ref": "#/definitions/infection_type"
+                }
+              }
+            },
+            {
+              "properties": {
+                "service_reason": {
+                  "type": "string",
+                  "enum": [
+                    "S/P Hospitalization"
+                  ]
+                },
+                "hospitialization_type": {
+                  "title": "Hospitalization Type",
+                  "enum": [
+                    "ER",
+                    "Observation",
+                    "Admission"
+                  ],
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "properties": {
+                "service_reason": {
+                  "type": "string",
+                  "enum": [
+                    "S/P Fall",
+                    "Change in Functional Status",
+                    "Generalized Deconditioning"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      "title": "Service Reason",
+      "type": "object",
+      "properties": {
+        "service_reason": {
+          "type": "string",
+          "title": "Service Reasons",
+          "enum": [
+            "S/P Hospitalization",
+            "S/P Fall",
+            "Infection",
+            "Acute Exacerbation of Chronic Conditions",
+            "Generalized Deconditioning",
+            "Change in Functional Status",
+            "Other"
+          ]
+        }
+      }
+    },
+    "service_type": {
+      "dependencies": {
+        "service_type": {
+          "oneOf": [
+            {
+              "properties": {
+                "service_type": {
+                  "type": "string",
+                  "enum": [
+                    "Other"
+                  ]
+                },
+                "service_type_other": {
+                  "title": "Other Service Type",
+                  "type": "string"
+                },
+                "service_frequency": {
+                  "default": "N/A",
+                  "title": "Service Frequency",
+                  "enum": [
+                    "N/A",
+                    "1 per Week",
+                    "2 per Week",
+                    "3 per Week",
+                    "4 per Week",
+                    "5 per Week",
+                    "6 per Week",
+                    "7 per Week"
+                  ],
+                  "type": "string"
+                }
+              }
+            },
+            {
+              "properties": {
+                "service_type": {
+                  "enum": [
+                    "Intravenous fluids",
+                    "IV antibiotics",
+                    "IM antibiotics",
+                    "Injections daily",
+                    "New Trach",
+                    "New Peg tube",
+                    "Wound care",
+                    "New Nebulizer treatments",
+                    "Speech therapy",
+                    "Physical therapy",
+                    "Occupational therapy"
+                  ],
+                  "type": "string"
+                },
+                "service_frequency": {
+                  "default": "N/A",
+                  "title": "Service Frequency",
+                  "enum": [
+                    "N/A",
+                    "1 per Week",
+                    "2 per Week",
+                    "3 per Week",
+                    "4 per Week",
+                    "5 per Week",
+                    "6 per Week",
+                    "7 per Week"
+                  ],
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "type": "object",
+      "properties": {
+        "service_type": {
+          "title": "Service Type",
+          "enum": [
+            "Intravenous fluids",
+            "IV antibiotics",
+            "IM antibiotics",
+            "Injections daily",
+            "New Trach",
+            "New Peg tube",
+            "Wound care",
+            "New Nebulizer treatments",
+            "Speech therapy",
+            "Physical therapy",
+            "Occupational therapy",
+            "Other"
+          ],
+          "type": "string"
+        }
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "member_information": {
+      "title": "Member Information",
+      "type": "string"
+    },
+    "reasons_for_service": {
+      "title": "Reasons for Service",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/reason_for_service"
+      }
+    },
+    "service_types": {
+      "type": "array",
+      "title": "Service Types",
+      "items": {
+        "$ref": "#/definitions/service_type"
+      }
+    },
+    "skilled_services": {
+      "title": "Skilled Services",
+      "type": "object",
+      "properties": {
+        "coverage": {
+          "type": "string",
+          "title": "Member Coverage Type",
+          "enum": [
+            "Part A",
+            "Part B"
+          ]
+        },
+        "service_start_date": {
+          "format": "date",
+          "title": "Service Start Date",
+          "type": "string"
+        },
+        "service_review_date": {
+          "format": "date",
+          "title": "Service Review Date",
+          "type": "string"
+        },
+        "service_end_date": {
+          "format": "date",
+          "title": "Service End Date",
+          "type": "string"
+        },
+        "diagnosis": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Diagnoses",
+          "type": "string"
+        }
+      }
+    },
+    "form_status": {
+      "title": "Form Status",
+      "properties": {
+        "status": {
+          "description": "Please change to finalized when this form has been finalized.",
+          "title": "Form Status",
+          "default": "Draft",
+          "enum": [
+            "Draft",
+            "Finalized"
+          ]
+        }
+      },
+      "type": "object"
+    }
+  }
+}

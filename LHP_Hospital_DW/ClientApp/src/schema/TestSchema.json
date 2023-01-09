@@ -1,0 +1,13 @@
+{
+  "title": "Acute Hospital Transfer",
+  "type": "object",
+  "properties": {
+    "member_information": {
+      "type": "string"
+    },
+    "hospital": {
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

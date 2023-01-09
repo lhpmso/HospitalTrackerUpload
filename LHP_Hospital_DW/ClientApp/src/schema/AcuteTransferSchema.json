@@ -1,0 +1,1280 @@
+{
+  "className": "frmAcuteTransfer",
+  "definitions": {
+    "discharge": {
+      "dependencies": {
+        "needs": {
+          "oneOf": [
+            {
+              "properties": {
+                "needs": {
+                  "type": "array",
+                  "contains": {
+                    "enum": [
+                      "Other"
+                    ]
+                  }
+                },
+                "needs_other": {
+                  "type": "string",
+                  "title": "Other Identified Discharge Need"
+                }
+              }
+            },
+            {
+              "properties": {
+                "needs": {
+                  "type": "array",
+                  "not": {
+                    "contains": {
+                      "enum": [
+                        "Other"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "type": "object",
+      "title": "",
+      "properties": {
+        "needs": {
+          "uniqueItems": true,
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "IV antibiotics/fluids",
+              "G tube/PEG tube management",
+              "Wound care services",
+              "Advanced respiratory services (CPAP, high flow O2, Trach care, Vent care)",
+              "Medication review/adjustment",
+              "Revisit ACP conversations",
+              "Therapy services (OT, PT, ST, RT)",
+              "Specialist consult",
+              "DME",
+              "Alternate facility placement",
+              "Other"
+            ]
+          },
+          "title": "Identified Discharge Needs",
+          "format": "textarea"
+        }
+      }
+    },
+    "actions": {
+      "dependencies": {
+        "action": {
+          "oneOf": [
+            {
+              "properties": {
+                "action": {
+                  "type": "array",
+                  "contains": {
+                    "enum": [
+                      "Other"
+                    ]
+                  }
+                },
+                "action_other": {
+                  "type": "string",
+                  "title": "Other Action Taken"
+                }
+              }
+            },
+            {
+              "properties": {
+                "action": {
+                  "type": "array",
+                  "not": {
+                    "contains": {
+                      "enum": [
+                        "Other"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "type": "object",
+      "title": "",
+      "properties": {
+        "action": {
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "NP education",
+              "Outreach to PCP or specialist",
+              "Outreach to family",
+              "ACP review",
+              "Investigation/discussion with ancillary service",
+              "Potential Quality Issue",
+              "Facility Level Education",
+              "Corporate Leadership Follow up",
+              "Telehealth Follow Up",
+              "Other"
+            ]
+          },
+          "title": "Action taken to mitigate",
+          "type": "array"
+        }
+      }
+    },
+    "completed_actions": {
+      "dependencies": {
+        "action": {
+          "oneOf": [
+            {
+              "properties": {
+                "action": {
+                  "type": "array",
+                  "contains": {
+                    "enum": [
+                      "Other"
+                    ]
+                  }
+                },
+                "action_other": {
+                  "type": "string",
+                  "title": "Other Action Taken"
+                }
+              }
+            },
+            {
+              "properties": {
+                "action": {
+                  "type": "array",
+                  "not": {
+                    "contains": {
+                      "enum": [
+                        "Other"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "type": "object",
+      "title": "",
+      "properties": {
+        "action": {
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "Education/in-services with facility staff completed",
+              "NP education completed",
+              "Outreach to PCP or specialist completed",
+              "Outreach to family completed",
+              "ACP reviewed/scheduled for review",
+              "Investigation/discussion with ancillary service completed",
+              "Other"
+            ]
+          },
+          "title": "Action taken to mitigate",
+          "type": "array"
+        }
+      }
+    },
+    "opportunities": {
+      "dependencies": {
+        "opportunity": {
+          "oneOf": [
+            {
+              "properties": {
+                "opportunity": {
+                  "enum": [
+                    "Other"
+                  ]
+                },
+                "opportunity_other": {
+                  "type": "string",
+                  "title": "Other Opportunity"
+                }
+              }
+            },
+            {
+              "properties": {
+                "opportunity": {
+                  "enum": [
+                    "NP/Telehealth Bypass",
+                    "Inappropriate/ineffective Treatment Plan",
+                    "Delay in Initiating Treatment",
+                    "Lack of/ineffective ACP conversation",
+                    "Facility Staff not Identifying/Reporting Change in Condition",
+                    "Delay in care from ancillary services (lab, radiology, pharmacy)",
+                    "Poor Care Coordination/Communication with PCP and/or specialists",
+                    "Poor Care Coordination/Communication with Family",
+                    "Poor Care Coordination/Communication with Facility"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      "title": "",
+      "type": "object",
+      "properties": {
+        "opportunity": {
+          "title": "Opportunity",
+          "type": "string",
+          "enum": [
+            "NP/Telehealth Bypass",
+            "Inappropriate/ineffective Treatment Plan",
+            "Delay in Initiating Treatment",
+            "Lack of/ineffective ACP conversation",
+            "Facility Staff not Identifying/Reporting Change in Condition",
+            "Delay in care from ancillary services (lab, radiology, pharmacy)",
+            "Poor Care Coordination/Communication with PCP and/or specialists",
+            "Poor Care Coordination/Communication with Family",
+            "Poor Care Coordination/Communication with Facility",
+            "Lack of appropriate follow up",
+            "Other"
+          ]
+        }
+      }
+    }
+  },
+  "title": "Acute Hospital Transfer",
+  "type": "object",
+  "properties": {
+    "member_banner": {
+      "title": "Member Information",
+      "type": "string"
+    },
+    "section_a": {
+      "title": "Section A: Hospital Transfer Notification (To Be Completed at Initial Notice of Transfer)",
+      "properties": {
+        "np_assignment": {
+          "title": "Assigned NP",
+          "type": "string"
+        },
+        "pcp_assignment": {
+          "title": "Assigned PCP",
+          "type": "string"
+        },
+        "risk_level": {
+          "type": "string",
+          "title": "Risk Level Prior to Transfer",
+          "default": "Pending",
+          "enum": [
+            "Pending",
+            "Low",
+            "Medium",
+            "High"
+          ]
+        },
+        "baseline_functional_status": {
+          "type": "string",
+          "title": "Baseline Functional Status",
+          "enum": [
+            "Independent",
+            "One Person Assist",
+            "Two Person Assist",
+            "Total Dependence"
+          ]
+        },
+        "baseline_congitive_status": {
+          "type": "string",
+          "title": "Baseline Cognitive Status",
+          "enum": [
+            "Alert and Oriented x 0",
+            "Alert and Oriented x 1",
+            "Alert and Oriented x 2",
+            "Alert and Oriented x 3",
+            "Alert and Oriented x 4"
+          ]
+        },
+        "last_np_visit_date": {
+          "title": "Date of Last NP Visit",
+          "format": "date",
+          "type": "string"
+        },
+        "transfer_date": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Acute Hospital Transfer Date / Time"
+        },
+        "transfer_hospital": {
+          "readOnly": true,
+          "title": "What hospital was the member transferred to?",
+          "type": "string"
+        },
+        "transfer_reason": {
+          "title": "Transfer Reason",
+          "type": "string"
+        },
+        "psych_primary": {
+          "title": "Psych Primary?",
+          "default": "Pending",
+          "enum": [
+            "Pending",
+            "Yes",
+            "No"
+          ]
+        },
+        "np_bypass": {
+          "title": "NP Bypass",
+          "default": "Pending",
+          "enum": [
+            "Pending",
+            "Yes",
+            "No"
+          ]
+        },
+        "transfer_authorization": {
+          "title": "",
+          "dependencies": {
+            "who_authorized": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "who_authorized": {
+                      "enum": [
+                        "PCP",
+                        "PCP NP",
+                        "LHP NP",
+                        "PCP / NP Joint Decision",
+                        "SNF",
+                        "Family",
+                        "On Call MD",
+                        "Telemedicine",
+                        "On Call NP"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "who_authorized": {
+                      "enum": [
+                        "Other"
+                      ]
+                    },
+                    "who_authorized_other": {
+                      "title": "Who Authorized Other",
+                      "type": "string"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "properties": {
+            "who_authorized": {
+              "enum": [
+                "PCP",
+                "PCP NP",
+                "PCP / NP Joint Decision",
+                "LHP NP",
+                "SNF",
+                "Family",
+                "On Call MD",
+                "Telemedicine",
+                "On Call NP",
+                "Other"
+              ],
+              "title": "Who authorized the transfer?",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "member_transfer_outcome": {
+          "default": "Pending",
+          "enum": [
+            "Pending",
+            "ER Only",
+            "Patient Admitted",
+            "Patient Under Observation",
+            "Patient Expired Prior to Admission",
+            "Transfer to other hospital"
+          ],
+          "title": "Transfer Outcome",
+          "type": "string"
+        },
+        "discharge_date": {
+          "type": "string",
+          "format": "date",
+          "title": "Hospital Discharge Date"
+        },
+        "business_hours": {
+          "type": "string",
+          "title": "Was the transfer during business hours?",
+          "description": "Mon-Friday 8am-5pm business days (non holidays)",
+          "enum": [
+            "Yes",
+            "No"
+          ]
+        }
+      }
+    },
+    "section_b": {
+      "title": "Section B: Hospital Case Review (To be completed by NP Manager Prior to Hospitalization Review Call)",
+      "properties": {
+        "health_plan": {
+          "title": "Health Plan",
+          "type": "string"
+        },
+        "enrollment_date": {
+          "title": "Entrollment Date",
+          "type": "string",
+          "format": "date"
+        },
+        "age": {
+          "title": "Member age at the time of transfer",
+          "type": "number"
+        },
+        "acp_code_status": {
+          "items": {
+            "type": "string",
+            "enum": [
+              "Full Code",
+              "DNR",
+              "DNI",
+              "DNH",
+              "Hospice",
+              "Palliative Care"
+            ]
+          },
+          "uniqueItems": true,
+          "title": "ACP Code Status",
+          "type": "array"
+        },
+        "valid_acp_plan_in_chart": {
+          "type": "string",
+          "title": "Valid advanced care directives forms present in member’s chart?",
+          "enum": [
+            "Yes",
+            "No"
+          ]
+        },
+        "goals_of_care": {
+          "title": "Goals of Care",
+          "type": "string",
+          "enum": [
+            "Comfort care only (Comfort)",
+            "Selective treatment (Maintain Function)",
+            "Full treatment (Longevity)"
+          ]
+        },
+        "last_acp_discussion_date": {
+          "type": "string",
+          "format": "date",
+          "title": "Last Advanced Care Planning Discussion Date"
+        },
+        "member_admitted_30_days": {
+          "title": "Has the member been admitted in the last 30 days?",
+          "type": "string"
+        },
+        "cic_body_systems": {
+          "title": "Body System Involved in CIC",
+          "type": "object",
+          "properties": {
+            "general": {
+              "properties": {
+                "areas": {
+                  "items": {
+                    "enum": [
+                      "Abnormal vital signs (representing a deviation from baseline)",
+                      "Abnormal Labs",
+                      "Abnormal Radiology",
+                      "Abnormal EKG",
+                      "Uncontrolled pain",
+                      "Altered mental status",
+                      "Dehydration/volume depletion",
+                      "Change in nutritional status (decreased/change in oral intake, weight loss) ",
+                      "Functional Decline",
+                      "Fatigue/weakness/malaise (general)"
+                    ],
+                    "type": "string"
+                  },
+                  "title": "General",
+                  "type": "array",
+                  "uniqueItems": true
+                },
+                "other": {
+                  "type": "string",
+                  "title": "Other"
+                }
+              },
+              "type": "object",
+              "title": "General"
+            },
+            "psych": {
+              "properties": {
+                "areas": {
+                  "items": {
+                    "enum": [
+                      "Aggressive behavior",
+                      "Suicidal/homicidal ideation",
+                      "Agitation",
+                      "Nonadherence to treatment regimen ",
+                      "Substance abuse"
+                    ]
+                  },
+                  "title": "Psych",
+                  "type": "array",
+                  "uniqueItems": true
+                },
+                "other": {
+                  "type": "string",
+                  "title": "Other"
+                }
+              },
+              "type": "object",
+              "title": "Psych"
+            },
+            "neuro": {
+              "properties": {
+                "areas": {
+                  "items": {
+                    "enum": [
+                      "Dizziness/vertigo",
+                      "Hemiplegia/weakness of specific area",
+                      "Nonresponsive/Decreased level of consciousness",
+                      "Headache",
+                      "Seizure",
+                      "Altered speech",
+                      "Tremors",
+                      "Vision change",
+                      "Neuro"
+                    ]
+                  },
+                  "type": "array",
+                  "title": "Neuro",
+                  "uniqueItems": true
+                },
+                "other": {
+                  "type": "string",
+                  "title": "Other"
+                }
+              },
+              "type": "object",
+              "title": "Neuro"
+            },
+            "cardiopulmonary": {
+              "properties": {
+                "areas": {
+                  "items": {
+                    "enum": [
+                      "Chest pain",
+                      "Cough",
+                      "Syncope",
+                      "Shortness of breath",
+                      "Abnormal heart sounds",
+                      "Abnormal lung sounds",
+                      "Fluid overload"
+                    ]
+                  },
+                  "type": "array",
+                  "title": "Cardiopulmonary",
+                  "uniqueItems": true
+                },
+                "other": {
+                  "type": "string",
+                  "title": "Other"
+                }
+              },
+              "type": "object",
+              "title": "Cardiopulmonary"
+            },
+            "gi": {
+              "properties": {
+                "areas": {
+                  "items": {
+                    "enum": [
+                      "Abdominal pain",
+                      "Abdominal distension",
+                      "Nausea/Vomiting",
+                      "Diarrhea",
+                      "Constipation",
+                      "Blood in stool",
+                      "Hematochezia/melena"
+                    ]
+                  },
+                  "type": "array",
+                  "title": "GI",
+                  "uniqueItems": true
+                },
+                "other": {
+                  "type": "string",
+                  "title": "Other"
+                }
+              },
+              "type": "object",
+              "title": "GI"
+            },
+            "gu": {
+              "properties": {
+                "areas": {
+                  "items": {
+                    "enum": [
+                      "Urinary retention",
+                      "Dysuria",
+                      "Hematuria",
+                      "Bladder Distention",
+                      "Bladder tenderness to palpation"
+                    ]
+                  },
+                  "type": "array",
+                  "title": "GU",
+                  "uniqueItems": true
+                },
+                "other": {
+                  "type": "string",
+                  "title": "Other"
+                }
+              },
+              "type": "object",
+              "title": "GU"
+            },
+            "hematology": {
+              "properties": {
+                "areas": {
+                  "items": {
+                    "enum": [
+                      "Abnormal bleeding (non-GI)"
+                    ]
+                  },
+                  "type": "array",
+                  "title": "Hematology",
+                  "uniqueItems": true
+                },
+                "other": {
+                  "type": "string",
+                  "title": "Other"
+                }
+              },
+              "type": "object",
+              "title": "Hematology"
+            },
+            "skin": {
+              "properties": {
+                "areas": {
+                  "items": {
+                    "enum": [
+                      "Edema",
+                      "Change in skin color",
+                      "Swelling",
+                      "Wound or pressure injury (nonsurgical)",
+                      "Wound - surgical incision concern",
+                      "Laceration/Skin tear"
+                    ]
+                  },
+                  "type": "array",
+                  "title": "Skin",
+                  "uniqueItems": true
+                },
+                "other": {
+                  "type": "string",
+                  "title": "Other"
+                }
+              },
+              "type": "object",
+              "title": "Skin"
+            },
+            "ortho_trauma": {
+              "properties": {
+                "areas": {
+                  "items": {
+                    "enum": [
+                      "Trauma- witnessed or suspected fall",
+                      "Fracture of unknown origin",
+                      "Decreased ROM",
+                      "Joint/extremity deformity"
+                    ]
+                  },
+                  "type": "array",
+                  "title": "Ortho/Trauma",
+                  "uniqueItems": true
+                },
+                "other": {
+                  "type": "string",
+                  "title": "Other"
+                }
+              },
+              "type": "object",
+              "title": "Ortho/Trauma"
+            },
+            "other": {
+              "properties": {
+                "other": {
+                  "type": "string",
+                  "title": "Other"
+                }
+              },
+              "type": "object",
+              "title": "Other"
+            }
+          }
+        },
+        "change_in_condition_date": {
+          "title": "Change in Condition Date",
+          "type": "string",
+          "format": "date"
+        },
+        "pcp_group_notified": {
+          "title": "PCP Group Notified of change in condition?",
+          "type": "string",
+          "enum": [
+            "Yes",
+            "No"
+          ]
+        },
+        "vitals": {
+          "type": "object",
+          "title": "Vital Signs at time of transfer",
+          "properties": {
+            "bp": {
+              "type": "string",
+              "title": "Blood Pressure"
+            },
+            "hr": {
+              "type": "number",
+              "title": "Heart Rate"
+            },
+            "rr": {
+              "type": "number",
+              "title": "Respiratory Rate"
+            },
+            "sp02": {
+              "type": "number",
+              "title": "Sp02"
+            },
+            "temp": {
+              "type": "number",
+              "title": "Temperature"
+            },
+            "pain_level": {
+              "type": "number",
+              "title": "Pain Level"
+            },
+            "blood_sugar": {
+              "type": "number",
+              "title": "Blood sugar"
+            }
+          }
+        },
+        "labs": {
+          "format": "textarea",
+          "type": "string",
+          "title": "Pertinent Labs Completed Prior to Transfer"
+        },
+        "minimum_3_day_lookback_completed": {
+          "title": "Minimum 3 Day Lookback Completed?",
+          "type": "string",
+          "enum": [
+            "Yes",
+            "No"
+          ]
+        },
+        "cic_reported_to_family": {
+          "title": "Change in condition reported to family by NP?",
+          "type": "string",
+          "enum": [
+            "Yes",
+            "No"
+          ]
+        },
+        "acp_reviewed_at_cic": {
+          "title": "ACP reviewed at time of CIC?",
+          "type": "string",
+          "enum": [
+            "Yes",
+            "No"
+          ]
+        },
+        "current_diagnoses": {
+          "format": "textarea",
+          "type": "string",
+          "title": "Current Diagnoses"
+        },
+        "current_medications": {
+          "format": "textarea",
+          "type": "string",
+          "title": "Current Medications"
+        },
+        "cic_description": {
+          "format": "textarea",
+          "type": "string",
+          "title": "CIC Description? Consider including information regarding comparison to baseline labs/vitals if appropriate."
+        },
+        "contributing_factors": {
+          "title": "Contributing Factors",
+          "type": "object",
+          "properties": {
+            "member_family_factors": {
+              "properties": {
+                "factors": {
+                  "items": {
+                    "enum": [
+                      "Member/Family not receptive to ACP conversation",
+                      "CIC Not Identified",
+                      "Member/Family wants advanced interventions at higher level of care",
+                      "Sudden Change in Condition requiring higher level of care",
+                      "Member/Family not able to make decision and no assigned decision maker available"
+                    ],
+                    "type": "string"
+                  },
+                  "title": "Member/Family Factors",
+                  "type": "array",
+                  "uniqueItems": true
+                },
+                "other": {
+                  "type": "string",
+                  "title": "Other"
+                }
+              },
+              "type": "object",
+              "title": "Member/Family Factors"
+            },
+            "facility_factors": {
+              "properties": {
+                "factors": {
+                  "items": {
+                    "enum": [
+                      "Staff does not have the capability to manage in place",
+                      "Staff have capability but uncomfortable treating in place",
+                      "Required treatments/testing not available in facility",
+                      "Facility Protocol",
+                      "Facility failed to notify NP with CIC ",
+                      "NP Bypass",
+                      "Telemedicine Bypass"
+                    ],
+                    "type": "string"
+                  },
+                  "title": "Facility Factors",
+                  "type": "array",
+                  "uniqueItems": true
+                },
+                "other": {
+                  "type": "string",
+                  "title": "Other"
+                }
+              },
+              "type": "object",
+              "title": "Facility Factors"
+            },
+            "pcp_factors": {
+              "properties": {
+                "factors": {
+                  "items": {
+                    "enum": [
+                      "PCP directive with LHP NP involvement",
+                      "PCP directive without LHP NP involvement",
+                      "PCP directive per specialist’s request",
+                      "PCP/PCP practice refuses to collaborate with LHP NP",
+                      "On Call/Covering PCP/NP directed transfer",
+                      "PCP ordered inappropriate/ineffective treatment plans"
+                    ],
+                    "type": "string"
+                  },
+                  "title": "PCP Factors",
+                  "type": "array",
+                  "uniqueItems": true
+                },
+                "other": {
+                  "type": "string",
+                  "title": "Other"
+                }
+              },
+              "type": "object",
+              "title": "PCP Factors"
+            },
+            "lhp_np_factors": {
+              "properties": {
+                "factors": {
+                  "items": {
+                    "enum": [
+                      "NP uncomfortable treating in place",
+                      "Member new to NP-limited opportunity to assess (<30 days)",
+                      "Member new to plan-limited opportunity to assess (<30 days)",
+                      "MOC visit frequency not followed",
+                      "No ACP in place",
+                      "No relationship with PCP",
+                      "No hand off to telemedicine or PCP",
+                      "No hand off to specialist",
+                      "Inappropriate/ineffective treatment plans"
+                    ],
+                    "type": "string"
+                  },
+                  "title": "LHP NP Factors",
+                  "type": "array",
+                  "uniqueItems": true
+                },
+                "other": {
+                  "type": "string",
+                  "title": "Other"
+                }
+              },
+              "type": "object",
+              "title": "LHP NP Factors"
+            },
+            "telemedicine_factors": {
+              "properties": {
+                "factors": {
+                  "items": {
+                    "enum": [
+                      "Telemedicine directed transfer even though treat in place was possible",
+                      "Telemedicine directed transfer appropriately",
+                      "Telemedicine provider failed to follow previously established treatment regimen",
+                      "Telemedicine ordered inappropriate/ineffective treatment plans"
+                    ],
+                    "type": "string"
+                  },
+                  "title": "Telemedicine Factors",
+                  "type": "array",
+                  "uniqueItems": true
+                },
+                "other": {
+                  "type": "string",
+                  "title": "Other"
+                }
+              },
+              "type": "object",
+              "title": "Telemedicine Factors"
+            },
+            "specialist_factors": {
+              "properties": {
+                "factors": {
+                  "items": {
+                    "enum": [
+                      "Member sent by specialist with LHP NP notification",
+                      "Member sent by specialist without LHP notification",
+                      "Specialist ordered inappropriate/ineffective treatment plans",
+                      "Unable to secure specialist consultation in reasonable time frame "
+                    ],
+                    "type": "string"
+                  },
+                  "title": "Specialist Factors",
+                  "type": "array",
+                  "uniqueItems": true
+                },
+                "other": {
+                  "type": "string",
+                  "title": "Other"
+                }
+              },
+              "type": "object",
+              "title": "Specialist Factors"
+            },
+            "facility_np_factors": {
+              "properties": {
+                "factors": {
+                  "items": {
+                    "enum": [
+                      "Facility NP directive with LHP NP involvement",
+                      "Facility NP directive without LHP NP involvement",
+                      "Facility NP directive per specialist’s request",
+                      "Facility NP refuses to collaborate with LHP NP",
+                      "Facility NP ordered inappropriate/ineffective treatment plans"
+                    ],
+                    "type": "string"
+                  },
+                  "title": "Facility NP Factors",
+                  "type": "array",
+                  "uniqueItems": true
+                },
+                "other": {
+                  "type": "string",
+                  "title": "Other"
+                }
+              },
+              "type": "object",
+              "title": "Facility NP Factors"
+            },
+            "other": {
+              "type": "string",
+              "format": "textarea",
+              "title": "Other"
+            },
+            "medication": {
+              "title": "",
+              "dependencies": {
+                "contribute_to_transfer": {
+                  "oneOf": [
+                    {
+                      "properties": {
+                        "contribute_to_transfer": {
+                          "enum": [
+                            "No"
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "properties": {
+                        "contribute_to_transfer": {
+                          "enum": [
+                            "Yes"
+                          ]
+                        },
+                        "explain": {
+                          "title": "Please Explain",
+                          "format": "textarea",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "properties": {
+                "contribute_to_transfer": {
+                  "title": "Did a medication potentially contribute to the transfer?",
+                  "type": "string",
+                  "enum": [
+                    "Yes",
+                    "No"
+                  ]
+                }
+              },
+              "type": "object"
+            }
+          }
+        },
+        "medication_improvement": {
+          "title": "Describe any recommendations for improving the medication regimen.",
+          "format": "textarea",
+          "type": "string"
+        },
+        "who_drove_transfer": {
+          "title": "",
+          "dependencies": {
+            "who_drove_transfer": {
+              "oneOf": [
+                {
+                  "properties": {
+                    "who_drove_transfer": {
+                      "enum": [
+                        "Member",
+                        "Family",
+                        "Facility",
+                        "PCP",
+                        "LHP NP",
+                        "Telemedicine",
+                        "Specialist",
+                        "Facility NP"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "properties": {
+                    "who_drove_transfer": {
+                      "enum": [
+                        "Other"
+                      ]
+                    },
+                    "who_drove_transfer_other": {
+                      "title": "Who drove transfer other",
+                      "type": "string"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "properties": {
+            "who_drove_transfer": {
+              "enum": [
+                "Member",
+                "Family",
+                "Facility",
+                "PCP",
+                "LHP NP",
+                "Telemedicine",
+                "Specialist",
+                "Facility NP",
+                "Other"
+              ],
+              "title": "Based on Review of Contributing Factors, What Drove Transfer?",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        },
+        "covid_related": {
+          "title": "Was COVID a factor in transfer or hospital stay?",
+          "type": "string",
+          "enum": [
+            "Yes",
+            "No"
+          ]
+        },
+        "covid_status": {
+          "title": "COVID Status?",
+          "type": "string",
+          "enum": [
+            "Positive",
+            "Negative",
+            "Test Pending",
+            "Not Tested"
+          ]
+        },
+        "opportunities": {
+          "title": "Please add any opportunities and actions taken to mitigate below:",
+          "items": {
+            "properties": {
+              "opportunity": {
+                "$ref": "#/definitions/opportunities"
+              },
+              "action": {
+                "$ref": "#/definitions/completed_actions"
+              },
+              "owner": {
+                "type": "string",
+                "title": "Owner",
+                "enum": [
+                  "Nurse Practitioner",
+                  "NP Manager",
+                  "DCQO",
+                  "Market President",
+                  "UM",
+                  "Medical Director"
+                ]
+              }
+            }
+          },
+          "type": "array"
+        }
+      }
+    },
+    "section_c": {
+      "title": "Section C: Case Discussion and Medical Director Review (To Be Completed During Hospitalization Review Call)",
+      "type": "object",
+      "properties": {
+        "presentation_date": {
+          "type": "string",
+          "format": "date",
+          "title": "Date of Presentation"
+        },
+        "presenter": {
+          "type": "string",
+          "title": "Presenter"
+        },
+        "additional_opportunities": {
+          "title": "Are there any additional opportunities or suggested interventions?",
+          "type": "array",
+          "items": {
+            "properties": {
+              "opportunity": {
+                "$ref": "#/definitions/opportunities"
+              },
+              "action": {
+                "$ref": "#/definitions/actions"
+              },
+              "owner": {
+                "type": "string",
+                "title": "Owner",
+                "enum": [
+                  "Nurse Practitioner",
+                  "NP Manager",
+                  "DCQO",
+                  "Market President",
+                  "UM",
+                  "Medical Director"
+                ]
+              },
+              "comments": {
+                "format": "textarea",
+                "type": "string",
+                "label": ""
+              }
+            }
+          }
+        },
+        "completion_date": {
+          "type": "string",
+          "format": "date",
+          "title": "Intervention to be completed by date"
+        },
+        "avoidance_determination": {
+          "enum": [
+            "Avoidable",
+            "Potentially Avoidable",
+            "Not Avoidable"
+          ],
+          "type": "string",
+          "title": "Avoidance Determination",
+          "description": "Based on all of the clinical information, including the 3 day lookback, how does the team rate this transfer?"
+        },
+        "discharge_date_viewer": {
+          "disabled": true,
+          "title": "Hospital Discharge Date",
+          "query": "$.section_a.discharge_date",
+          "type": "string"
+        }
+      }
+    },
+    "section_d": {
+      "type": "object",
+      "title": "Section D: Hospital/Post Discharge Review (If Information Available- To Be Completed During Hospitalization Review Call))",
+      "properties": {
+        "hospital_diagnosis": {
+          "type": "string",
+          "title": "Hospital Diagnosis",
+          "format": "textarea"
+        },
+        "discharge_needs": {
+          "$ref": "#/definitions/discharge"
+        },
+        "member_disposition": {
+          "type": "array",
+          "uniqueItems": true,
+          "title": "Member Disposition",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Return to SNF",
+              "Return to SNF with Hospice",
+              "Psych Hospital",
+              "Acute Rehab",
+              "Expiration",
+              "LTACH",
+              "Community",
+              "Non-Par SNF",
+              "Hospice (Inpatient)"
+            ]
+          }
+        },
+        "member_disposition_other": {
+          "type": "string",
+          "title": "Member Disposition Other"
+        },
+        "follow_up_outcomes": {
+          "type": "string",
+          "title": "Outcome of Follow Up Interventions",
+          "format": "textarea"
+        },
+        "follow_up_opportunities": {
+          "disabled": false,
+          "title": "Follow up opportunities",
+          "query": "$.section_c.additional_opportunities",
+          "type": "string"
+        }
+      }
+    },
+    "form_status": {
+      "description": "Please change to finalized when this form has been finalized.",
+      "default": "Draft",
+      "enum": [
+        "Draft",
+        "Finalized"
+      ],
+      "title": "Form Status"
+    }
+  }
+}
